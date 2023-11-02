@@ -11,28 +11,28 @@ class LoginApp:
       self.root.resizable(0, 0)
       self.root.title("Acceso")
       
-      # Carga la imagen
-      self.logo_image = Image.open("images/fonts/bg-login-img.jpg")  # Reemplaza "ruta_de_tu_imagen.jpg" con la ruta real de tu imagen
-      self.logo_photo = ImageTk.PhotoImage(self.logo_image)
+      # Carga la imagen de fondo
+      self.bg_image = Image.open("images/fonts/bg-login-img.jpg")
+      self.bg_photo = ImageTk.PhotoImage(self.bg_image)
 
-      # Crea un Canvas para mostrar la imagen en toda la ventana
-      self.canvas = tk.Canvas(self.root, width=self.logo_image.width, height=self.logo_image.height)
+        # Crea un Canvas para mostrar la imagen de fondo en toda la ventana
+      self.canvas = tk.Canvas(self.root, width=self.bg_image.width, height=self.bg_image.height)
       self.canvas.pack()
 
-      # Mostrar la imagen en el Canvas
-      self.canvas.create_image(0, 0, anchor=tk.NW, image=self.logo_photo)
-      
-      # Carga la imagen de logotipo
-      self.logo_image = Image.open("images/logo/logo.png")  # Reemplaza con la ruta real de tu imagen
-        # Redimensiona la imagen al tamaño deseado (por ejemplo, 100x100)
+        # Mostrar la imagen de fondo en el Canvas
+      self.canvas.create_image(0, 0, anchor=tk.NW, image=self.bg_photo)
+
+        # Carga la imagen de logotipo
+      self.logo_image = Image.open("images/logo/logo.png")
       new_width = 100
       new_height = 80
       self.logo_image = self.logo_image.resize((new_width, new_height), Image.LANCZOS)
       self.logo_photo = ImageTk.PhotoImage(self.logo_image)
 
-        # Crea el Label para la imagen
+        # Crea el Label para la imagen del logotipo
       self.Labellogo = tk.Label(self.root, image=self.logo_photo)
       self.Labellogo.place(x=160, y=20)
+
 
 
       self.TFrame1 = ttk.Frame(self.root)
@@ -54,7 +54,7 @@ class LoginApp:
       self.TSeparator1.place(x=10, y=100, width=200)  # Ancho de 200 píxeles
 
       self.TSeparator1_1 = ttk.Separator(self.TFrame1)
-      self.TSeparator1_1.place(x=290, y=100, width=200)  # Ancho de 200 píxeles
+      self.TSeparator1_1.place(x=250, y=100, width=155)  # Ancho de 200 píxeles
 
 
       self.Label2 = tk.Label(self.TFrame1)
