@@ -51,10 +51,11 @@ class LoginApp:
       self.Label1.configure(text='''Iniciar Sesión''')
 
       self.TSeparator1 = ttk.Separator(self.TFrame1)
-      self.TSeparator1.place(x=10, y=100, width=0)
+      self.TSeparator1.place(x=10, y=100, width=200)  # Ancho de 200 píxeles
 
       self.TSeparator1_1 = ttk.Separator(self.TFrame1)
-      self.TSeparator1_1.place(x=290, y=100, width=0)
+      self.TSeparator1_1.place(x=290, y=100, width=200)  # Ancho de 200 píxeles
+
 
       self.Label2 = tk.Label(self.TFrame1)
       self.Label2.place(x=120, y=90, height=21, width=174)
