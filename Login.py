@@ -29,9 +29,9 @@ class LoginApp:
       self.logo_image = self.logo_image.resize((new_width, new_height), Image.LANCZOS)
       self.logo_photo = ImageTk.PhotoImage(self.logo_image)
 
-        # Crea el Label para la imagen del logotipo
-      self.Labellogo = tk.Label(self.root, image=self.logo_photo)
-      self.Labellogo.place(x=160, y=20)
+        # Superpone la imagen del logotipo en el Canvas
+      self.canvas.create_image(160, 20, anchor=tk.NW, image=self.logo_photo)
+
 
 
 
