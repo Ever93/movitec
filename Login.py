@@ -1,6 +1,14 @@
 import tkinter as tk
 from tkinter import ttk
+from tkinter import messagebox
 from PIL import Image, ImageTk  # Importa PIL
+import sqlite3
+import db
+import hashlib
+from ventana_principal import VentanaPrincipal  # Importa la clase VentanaPrincipal desde el archivo ventana_principal.py
+import os
+import datetime
+
 
 class LoginApp:
     def __init__(self, root):
@@ -88,8 +96,40 @@ class LoginApp:
       self.ButtonAcceso = tk.Button(self.TFrame1, text="Acceso", image=self.button_photo, compound=tk.LEFT, command=self.button_click, background="#008CFF",  font=("Arial", 14))
       self.ButtonAcceso.place(x=70, y=300, height=34, width=267)
 
+    
     def button_click(self):
-      pass
+        correo = self.EntryCorreo.get()
+        contraseña = self.EntryPassword.get()
+
+        if self.validar_usuario(correo, contraseña):
+            # Las credenciales son correctas, abre la ventana principal
+            self.abrir_ventana_principal()
+        else:
+            # Las credenciales son incorrectas, muestra un mensaje de error
+            messagebox.showerror("Error", "Correo o contraseña incorrectos")
+
+    def validar_usuario(self, correo, contraseña):
+        try:
+            conn, c = db.conectar()
+
+            c.execute("SELECT clave_hash, salt FROM usuarios WHERE correo = ?", (correo,))
+            resultado = c.fetchone()
+
+            if resultado:
+                clave_hash_db, salt_db = resultado
+                salted_password = salt_db + contraseña
+                hashed_password = hashlib.sha256(salted_password.encode()).hexdigest()
+
+                if clave_hash_db == hashed_password:
+                    return True  # Las credenciales son correctas
+        except sqlite3.Error as e:
+            print("Error al conectar a la base de datos:", e)
+
+        return False  # Las credenciales son incorrectas
+
+    def abrir_ventana_principal(self):
+         ventana_principal_app = VentanaPrincipal(self)
+         ventana_principal_app.mainloop()
 
 if __name__ == "__main__":
   root = tk.Tk()
