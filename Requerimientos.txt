@@ -1,7 +1,8 @@
 Menu desplegable Inicio
 Detalles
 Administracion (Usuarios, Roles, configuracion, log de acceso
-Mantenimiento (Medidas, categorias)
+Presupuesto
+Pedido
 Proveedores
 Compras
 Historial Ventas
@@ -11,5 +12,6 @@ Cotizaciones
 Apartados
 Inventario
 Kardex
+Configuracion (Medidas, categorias)
 Cabezera
 Inicio -- Cajas--Clientes---Productos
