@@ -105,6 +105,10 @@ class LoginApp:
   def button_click(self, event=None):
     correo = self.EntryCorreo.get()
     contraseña = self.EntryPassword.get()
+    # Restablecer los campos de entrada a blanco
+    self.EntryCorreo.delete(0, tk.END)
+    self.EntryPassword.delete(0, tk.END)
+    
     if self.validar_usuario(correo, contraseña):
       self.abrir_ventana_principal()
     else:
