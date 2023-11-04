@@ -1,0 +1,15 @@
+Menu desplegable Inicio
+Detalles
+Administracion (Usuarios, Roles, configuracion, log de acceso
+Mantenimiento (Medidas, categorias)
+Proveedores
+Compras
+Historial Ventas
+Historial Compras
+Administrar Creditos
+Cotizaciones
+Apartados
+Inventario
+Kardex
+Cabezera
+Inicio -- Cajas--Clientes---Productos
