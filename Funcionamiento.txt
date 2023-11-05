@@ -1,0 +1,12 @@
+Ventas
+#Buscador
+Los productos se buscan por codigo o codigo de barra
+Tambien se puede buscar por #nombre[se abre un top level de buscar producto]
+El buscador si no lo encuentra mensaje no existe producto
+El buscador lo encuentra pero hay stock cero, mensaje producto en falta
+Serie seria el numero de boletas que hay
+#Historial
+Tiene todo los registros de ventas que se pueden ver por dia
+el historial permite anular una venta por numero de serie y debe ser de acuerdo al dia y a la caja del dia
+#Anular
+Permite abrir un toplevel para anular ventas por numero de recibo
