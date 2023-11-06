@@ -80,6 +80,5 @@ Permite abrir un toplevel para anular ventas por numero de recibo
 Ventas por default siempre el metodo estara en contado, cuando el metodo es contado
 #buscar cliente
 La busqueda se puede hacer por nombre, ci o ruc
-La busqueda es condicionada a metodo, contado o cuotas
+el metodo por default sera al contado (La venta cuota o credito se va a gestionar en la ventana creditos)
 buscar el cliente en bd clientecontado
-Si no si metodo es cuotas buscar en bd clientecredito
