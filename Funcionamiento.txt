@@ -1,5 +1,71 @@
+
+Inicio -- Cajas--Creditos--Pendientes--Clientes--Productos--Taller
+#Inicio
+Menu desplegable Inicio
+Detalles (Contiene todos los detalles posibles)
+Administracion (Usuarios (se registra el usuario con su rol respectivo, solo 
+el administrador puede registrar al usuario),
+ Roles(contiene administrador[acceso total] Vendedor[acceso a temas de ventas],
+ configuracion(configuracion de porcentaje de interes y cantidad de cuotas),
+Presupuesto(cotizaciones para el cliente)
+Pedido (acceso a proveedores, datos de posibles productos, historial de pedido,
+proyecciones de ganancia, precio de venta, precio de compra, interes, cotizacion
+retorno inmediato, gastos de encomienda, pedido pendiente, realizado y funcion
+exportar excel)
+Proveedores (datos de proveedores)
+Compras (en compras solo se registra cuando hay compras)
+Historial Ventas (permite ver las ventas del dia, y las ventas por fecha)
+Historial Compras (permite ver todas las compras, tambien esta asociado a gastos de delivery
+y encomiendas)
+Administrar Creditos (todo lo referente a creditos)
+Cotizaciones
+Apartados
+Inventario
+Kardex
+Configuracion (Medidas, categorias)
+#Cabezera
+Inicio -- Cajas--Creditos--Pendientes--Clientes--Productos--Taller
+#Cajas
+Sirve para abrir y cerrar la caja, la caja se puede abrir contando las monedas
+La caja se cierra contando las monedas
+La caja permite ver en tiempo real cuando se esta recaudando,
+El arqueo de caja muestra todo el movimiento de efectivo y transacciones, tambien gastos
+debe permitir imprimir
+La caja permite ver el historial de caja por fecha, datos como
+[monto inicial, recaudacion, total en caja, gastos, total en banco, total en transacciones]
+#Cabezera
+Inicio -- Cajas--Creditos--Pendientes--Clientes--Productos--Taller
+Creditos maneja todo el credito tanto con intereses y sin intereses,
+Credito con intereses se factura aca
+#Cabezera
+Inicio -- Cajas--Creditos--Pendientes--Clientes--Productos--Taller
+Pendientes
+Contiene las ventas pendientes productos a consignacion
+#Cabezera
+Inicio -- Cajas--Creditos--Pendientes--Clientes--Productos--Taller
+Clientes
+Tres tipos de clientes
+Cliente con Ruc para facturacion clientecontado y cuotas
+Cliente con creditos	clientecredito( este tipo de cliente se va a cargar desde creditos
+[se registra con nro de cedula y ruc)
+Cliente para taller	cliente
+
+Contiene todos los datos de clientes, como registrar clientes
+#Cabezera
+Inicio -- Cajas--Creditos--Pendientes--Clientes--Productos--Taller
+Productos
+Permite buscar producto, cargar productos, modificar el precio
+#Cabezera
+Inicio -- Cajas--Creditos--Pendientes--Clientes--Productos--Taller
+Taller
+Un mundo a parte
+ejemplo los clientes del taller estaran en tabla de clientetaller
+debido a que los clientes del taller no son los mismos que los clientes para creditos
 Ventas
+Las ventas no se pueden realizar sin que se haya abierto una caja
 #Buscador
+mensajes del buscador{Caja cerrada [y se deshabilita el buscador], No existe producto
+Producto en falta}
 Los productos se buscan por codigo o codigo de barra
 Tambien se puede buscar por #nombre[se abre un top level de buscar producto]
 El buscador si no lo encuentra mensaje no existe producto
@@ -10,3 +76,10 @@ Tiene todo los registros de ventas que se pueden ver por dia
 el historial permite anular una venta por numero de serie y debe ser de acuerdo al dia y a la caja del dia
 #Anular
 Permite abrir un toplevel para anular ventas por numero de recibo
+#metodo
+Ventas por default siempre el metodo estara en contado, cuando el metodo es contado
+#buscar cliente
+La busqueda se puede hacer por nombre, ci o ruc
+La busqueda es condicionada a metodo, contado o cuotas
+buscar el cliente en bd clientecontado
+Si no si metodo es cuotas buscar en bd clientecredito
