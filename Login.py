@@ -2,12 +2,10 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
 from PIL import Image, ImageTk  # Importa PIL
-import sqlite3
-import db
+import psycopg2
+from db import conectar
 import hashlib
 from ventana_principal import VentanaPrincipal  # Importa la clase VentanaPrincipal desde el archivo ventana_principal.py
-import os
-import datetime
 from tkinter import Toplevel
 
 
@@ -114,10 +112,11 @@ class LoginApp:
     else:
       messagebox.showerror("Error", "Correo o contraseña incorrectos")
 
+  
   def validar_usuario(self, correo, contraseña):
     try:
-      conn, c = db.conectar()
-      c.execute("SELECT clave_hash, salt FROM usuarios WHERE correo = ?", (correo,))
+      conn, c = conectar()
+      c.execute("SELECT clave_hash, salt FROM usuarios WHERE correo = %s", (correo,))
       resultado = c.fetchone()
       if resultado:
         clave_hash_db, salt_db = resultado
@@ -125,9 +124,17 @@ class LoginApp:
         hashed_password = hashlib.sha256(salted_password.encode()).hexdigest()
         if clave_hash_db == hashed_password:
           return True  # Las credenciales son correctas
-    except sqlite3.Error as e:
-      print("Error al conectar a la base de datos:", e)
-      return False  # Las credenciales son incorrectas
+    except psycopg2.Error as e:
+        print("Error al conectar a la base de datos:", e)
+        return False  # Las credenciales son incorrectas
+
+    finally:
+            # Cierra el cursor y la conexión en el bloque 'finally'
+        if c:
+          c.close()
+        if conn:
+          conn.close()
+
 
   def abrir_ventana_principal(self):
     self.root.withdraw()
