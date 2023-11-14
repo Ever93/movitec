@@ -1,4 +1,7 @@
-
+Crear relacion entre usuario y rol. la relacion lo hago desde la tabla usuario, por ejemplo la
+tabla usuario tiene un campo relacionado a la tabla rol
+Primero se carga el rol
+despues se carga el usuario
 Inicio -- Cajas--Creditos--Pendientes--Clientes--Productos--Taller
 #Inicio
 Menu desplegable Inicio
@@ -82,3 +85,6 @@ Ventas por default siempre el metodo estara en contado, cuando el metodo es cont
 La busqueda se puede hacer por nombre, ci o ruc
 el metodo por default sera al contado (La venta cuota o credito se va a gestionar en la ventana creditos)
 buscar el cliente en bd clientecontado
+Ventana Usuarios
+Ventana nuevo usuarios
+permite cargar nuevos usuarios, tambien la misma ventana se va a usar para editar los usuarios
